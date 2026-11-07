@@ -31,7 +31,7 @@ function Agendar() {
   const zone = findZone(zona)!;
   const orders = useOrders();
   const [dates] = useState(() => bookableDates(12));
-  const [date, setDate] = useState(dates[0]);
+  const [date, setDate] = useState<string>(dates[0] ?? "");
 
   return (
     <Shell back={<Link to="/" className="text-sm text-muted-foreground hover:text-foreground">Cambiar zona</Link>}>

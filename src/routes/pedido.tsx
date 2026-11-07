@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/pedido")({
   validateSearch: (s: Record<string, unknown>) => ({
-    zona: String(s.zona ?? ""), fecha: String(s.fecha ?? ""), franja: String(s.franja ?? ""),
+    zona: String(s["zona"] ?? ""), fecha: String(s["fecha"] ?? ""), franja: String(s["franja"] ?? ""),
   }),
   head: () => ({
     meta: [

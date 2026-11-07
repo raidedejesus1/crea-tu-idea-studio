@@ -55,7 +55,7 @@ function Admin() {
 function Panel() {
   const orders = useOrders();
   const [dates] = useState(() => bookableDates(12));
-  const [date, setDate] = useState(dates[0]);
+  const [date, setDate] = useState<string>(dates[0] ?? "");
   if (!orders) return <Shell><Loading /></Shell>;
   const dayOrders = orders.filter((o) => o.date === date && o.status === "activo");
 
