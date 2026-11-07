@@ -12,7 +12,7 @@ function makeId() {
 
 /** 12 pedidos de ejemplo, inventados. Prado y Aguada 11–13 del primer día queda completa (6/6). */
 export function makeSeed(now = new Date()): Order[] {
-  const [d1, d2, d3] = bookableDates(3, now);
+  const [d1, d2, d3] = bookableDates(3, now) as [string, string, string];
   const base = (o: Partial<Order> & Pick<Order, "name" | "zoneId" | "slotId" | "date" | "baskets">): Order => ({
     id: makeId(), phone: "09" + Math.floor(1000000 + Math.random() * 8999999), address: "Calle de ejemplo 1234",
     notes: "", items: {}, payment: "efectivo" as Payment, status: "activo", createdAt: now.toISOString(), ...o,
