@@ -53,7 +53,7 @@ function Agendar() {
         })}
       </div>
 
-      <h2 className="mt-8 text-lg font-semibold capitalize">{dateLong(date)}</h2>
+      <h2 className="mt-8 text-lg font-semibold first-letter:uppercase">{dateLong(date)}</h2>
       {!orders ? <Loading /> : (
         <ul className="mt-4 grid gap-3">
           {zone.slots.map((slot) => {
