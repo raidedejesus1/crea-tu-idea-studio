@@ -122,6 +122,24 @@ function Panel() {
           </section>
         ))}
       </div>
+
+      <section className="mt-10 rounded-2xl border-2 border-dashed border-primary/40 bg-card p-4">
+        <h2 className="font-display text-lg font-semibold">Datos de ejemplo</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Vuelve a los 12 pedidos de muestra y borra lo que se haya agendado o cancelado en esta demo.
+        </p>
+        <Button
+          variant="outline"
+          className="mt-3"
+          onClick={() => {
+            if (!confirm("¿Restaurar los datos de ejemplo? Se borran los pedidos agendados en esta demo.")) return;
+            resetOrders();
+            toast.success("Datos de ejemplo restaurados: 12 pedidos otra vez.");
+          }}
+        >
+          Restaurar datos de ejemplo
+        </Button>
+      </section>
     </Shell>
   );
 }
