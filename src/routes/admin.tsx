@@ -9,7 +9,7 @@ import { ADMIN_PASSWORD } from "@/lib/config";
 import { BED_ITEMS, ZONES, findSlot } from "@/lib/data";
 import { bookableDates, dateShort } from "@/lib/dates";
 import { formatPesos, orderTotal, remainingBaskets } from "@/lib/logic";
-import { cancelOrder, useOrders } from "@/lib/store";
+import { cancelOrder, resetOrders, useOrders } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin")({
