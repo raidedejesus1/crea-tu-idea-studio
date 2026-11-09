@@ -72,4 +72,9 @@ export function cancelOrder(id: string) {
   write(read().map((o) => (o.id === id ? { ...o, status: "cancelado" } : o)));
 }
 
+/** Vuelve a los 12 pedidos de ejemplo y borra lo agendado en la demo. */
+export function resetOrders() {
+  write(makeSeed());
+}
+
 export function getOrders() { return read(); }

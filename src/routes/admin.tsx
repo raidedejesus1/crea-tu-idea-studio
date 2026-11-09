@@ -9,7 +9,7 @@ import { ADMIN_PASSWORD } from "@/lib/config";
 import { BED_ITEMS, ZONES, findSlot } from "@/lib/data";
 import { bookableDates, dateShort } from "@/lib/dates";
 import { formatPesos, orderTotal, remainingBaskets } from "@/lib/logic";
-import { cancelOrder, useOrders } from "@/lib/store";
+import { cancelOrder, resetOrders, useOrders } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin")({
@@ -122,6 +122,24 @@ function Panel() {
           </section>
         ))}
       </div>
+
+      <section className="mt-10 rounded-2xl border-2 border-dashed border-primary/40 bg-card p-4">
+        <h2 className="font-display text-lg font-semibold">Datos de ejemplo</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Vuelve a los 12 pedidos de muestra y borra lo que se haya agendado o cancelado en esta demo.
+        </p>
+        <Button
+          variant="outline"
+          className="mt-3"
+          onClick={() => {
+            if (!confirm("¿Restaurar los datos de ejemplo? Se borran los pedidos agendados en esta demo.")) return;
+            resetOrders();
+            toast.success("Datos de ejemplo restaurados: 12 pedidos otra vez.");
+          }}
+        >
+          Restaurar datos de ejemplo
+        </Button>
+      </section>
     </Shell>
   );
 }
